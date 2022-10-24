@@ -13,13 +13,43 @@ public class MetodosExercicio1 {
                 Scanner scanner = new Scanner(System.in);
                 opcao = scanner.nextInt();
             } catch (InputMismatchException ime) {
-                opcao = 3;
+                opcao = 0;
             }
             switch (opcao) {
                 case 1 : resolverOperacoesBasicas(); break;
                 case 2 : resolverValorEmprestimo(); break;
+                case 3 : resolverAreaQuadrilatero(); break;
                 default: return;
             }
+        }
+    }
+
+    private static void resolverAreaQuadrilatero() {
+        try {
+            System.out.println();
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("Digite o tamanho da base: ");
+            float base = scanner.nextFloat();
+            System.out.print("Digite o tamanho da lateral esquerda: ");
+            float latEsquerda = scanner.nextFloat();
+            System.out.print("Digite o tamanho da lateral direita: ");
+            float latDireita = scanner.nextFloat();
+            System.out.print("Digite o tamanho do topo: ");
+            float topo = scanner.nextFloat();
+            float area;
+            if (base == topo && latEsquerda == latDireita && base == latEsquerda) {
+                area = Quadrilatero.retorneArea(base);
+            } else if (base == topo && latEsquerda == latDireita) {
+                area = Quadrilatero.retorneArea(base, latEsquerda);
+            } else {
+                area = Quadrilatero.retorneArea(base, topo, latEsquerda, latDireita);
+            }
+            System.out.printf("Área do quadrilátero: %f%n", area);
+            System.out.println();
+
+
+        } catch (InputMismatchException ime) {
+            return;
         }
     }
 
@@ -64,6 +94,7 @@ public class MetodosExercicio1 {
         System.out.println();
         System.out.println("Digite 1 para operações básicas.");
         System.out.println("Digite 2 para cálculo do empréstimo.");
+        System.out.println("Digite 3 para cálculo do quadrilátero.");
         System.out.println("Digite outro valor para sair.");
         System.out.print("Digite sua opção: ");
     }
