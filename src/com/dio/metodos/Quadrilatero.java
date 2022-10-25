@@ -1,3 +1,5 @@
+package com.dio.metodos;
+
 public class Quadrilatero {
 
     public static float retorneArea(float lado) {
